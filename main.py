@@ -1,2 +1,3 @@
-print("Hello World")
-print("Hi")
+def say():
+    print("Hello World")
+    print("Hi")
