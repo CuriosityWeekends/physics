@@ -9,8 +9,6 @@ item0 = "Cube"
 def MoveTo(item,x,y,z):
     msg = str(item) + "," + str(x) + "," + str(y) + "," + str(z)
     Send(msg)
-    
-
 
 
 def Send(msg):
@@ -28,11 +26,12 @@ if __name__ == "__main__":
     y0 = 0
     z0 = 10
 
-    v = -1 # m/s
+    v = 10
     dt = 1 # s
-
+    a = -1 # constant
+    
     tStart = 0
-    tStop = 10
+    tStop = 30
 
     t = np.linspace(tStart, tStop, int(1 + ((tStop - tStart)/dt)))
 
@@ -43,6 +42,7 @@ if __name__ == "__main__":
     z.append(z0)
 
     for ti in t[1:]:
+        v += a
         dx = v * dt
         zi = z[-1] + dx
         MoveTo(item0,x0, y0, zi)
