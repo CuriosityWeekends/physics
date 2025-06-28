@@ -1,5 +1,5 @@
 def say():
     print("Hello World")
     print("Hi")
-    print("Oh HELL NAAA")
+    print("Oh Hey there!")
 say()
