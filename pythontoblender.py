@@ -4,18 +4,23 @@ import time
 
 msg = "5,0,0 " # Move to X=3, Y=2, Z=1
 
+item0 = "Cube"
 
-def MoveTo(x,y,z):
-    msg = str(x) + "," + str(y) + "," + str(z)
+def MoveTo(item,x,y,z):
+    msg = str(item) + "," + str(x) + "," + str(y) + "," + str(z)
     Send(msg)
     
 
 
+
 def Send(msg):
     client = socket.socket()
-    client.connect(('localhost', 9999))
+    client.connect(('localhost', 5600))
+    print("Socket connected")
     client.send(msg.encode())
+    print("Sent msg: ", msg)
     client.close()
+
 
 
 if __name__ == "__main__":
@@ -40,6 +45,7 @@ if __name__ == "__main__":
     for ti in t[1:]:
         dx = v * dt
         zi = x[-1] + dx
-        MoveTo(x0, y0, zi)
+        MoveTo(item0,x0, y0, zi)
         x.append(zi)
         time.sleep(dt)
+    
