@@ -15,8 +15,8 @@ def start_server():
             data = conn.recv(1024).decode()
             if data:
                 print(f"📦 Received: {data}")
-                x, y, z = map(float, data.split(","))
-                bpy.data.objects["Cube"].location = (x, y, z)
+                item, x, y, z  = map(eval, data.split(","))
+                bpy.data.objects[item].location = (x, y, z)
             conn.close()
         except:
             print("Exception")
